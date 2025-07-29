@@ -26,6 +26,19 @@ read -p "Введите новое расширение файлов: " new_file
 # Проверка существования исходной директории и целевой директории
 
 
+if [ ! -d "$source_directory" ]; then
+  echo "Исходная директория $source_directory не существует или недоступна."
+  exit 1
+fi
+
+if [ ! -d "$target_directory" ]; then
+  echo "Целевая директория $target_directory не существует или недоступна."
+  mkdir -p $target_directory
+fi
+
+echo "Обе директории существуют и доступны."
+
+
 # Проверка, есть ли файлы с указанным расширением в исходной директории
 if ls "$source_directory"/*."$file_extension"; then
   echo "Файлы с расширением .$file_extension найдены в '$source_directory'"
