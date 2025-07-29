@@ -1,6 +1,23 @@
 #!/bin/bash
 
 # Запрос исходной и целевой директории у пользователя
+read -p "Введите исходную директорию: " source_directory
+read -p "Введите целевую директорию: " target_directory
+
+if [ ! -d "$source_directory" ]; then
+  echo "Проверка исходной директории '$source_directory'"
+  exit 1
+fi
+
+if [ ! -d "$target_directory" ]; then
+  echo "Целевая директория '$target_directory' не найдена"
+  
+  mkdir -p '$target_directory'
+  echo "Создана целевая директория: '$target_directory'"
+else
+  echo "Целивая директория'$target_directory' уже существует"
+fi
+
 
 # Запрос расширения файлов, которые нужно скопировать
 
