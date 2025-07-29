@@ -27,7 +27,12 @@ read -p "Введите новое расширение файлов: " new_file
 
 
 # Проверка, есть ли файлы с указанным расширением в исходной директории
-
+if ls "$source_directory"/*."$file_extension"; then
+  echo "Файлы с расширением .$file_extension найдены в '$source_directory'"
+else
+  echo "Ошибка: нет файлов с расширением .$file_extension в '$source_directory'"
+  exit 1
+fi
 # Копирование файлов с указанным расширением в целевую директорию
 
 # Архивация исходных файлов.
