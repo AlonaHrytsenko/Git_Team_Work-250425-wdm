@@ -62,7 +62,7 @@ for file in "$source_directory"/*"$file_extension"; do
 	new_filename="${filename_without_ext}${new_file_extension}"
 	cp "$file" "$target_directory/$new_filename"
 	echo "Копирование файла: $filename в $target_directory/$new_filename"
-fi
-
+    fi
+done
 # Архивация исходных файлов.
 
